@@ -1,13 +1,13 @@
 <mxfile>
     <diagram id="ZseerEGyUAoCpNexzk-l" name="ページ1">
-        <mxGraphModel dx="788" dy="555" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="356" dy="555" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="users&lt;br&gt;&lt;br&gt;nickname&lt;br&gt;email&lt;br&gt;password&lt;br&gt;last_name&lt;br&gt;first_name&lt;br&gt;last_name_kana&lt;br&gt;first_name_kana&lt;br&gt;birth_year&lt;br&gt;birth_month&lt;br&gt;birth_day" style="rounded=1;whiteSpace=wrap;html=1;arcSize=11;" parent="1" vertex="1">
                     <mxGeometry x="40" y="40" width="120" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="products&lt;br&gt;&lt;br&gt;image&lt;br&gt;name&lt;br&gt;content&lt;br&gt;user_id&lt;br&gt;delivery_id" style="rounded=1;whiteSpace=wrap;html=1;arcSize=13;align=center;" parent="1" vertex="1">
+                <mxCell id="3" value="products&lt;br&gt;&lt;br&gt;image&lt;br&gt;name&lt;br&gt;content&lt;br&gt;price&lt;br&gt;category_id&lt;br&gt;delivery_charge_id&lt;br&gt;status_id&lt;br&gt;city_id&lt;br&gt;days_id&lt;br&gt;user_id&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=13;align=center;" parent="1" vertex="1">
                     <mxGeometry x="360" y="40" width="120" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="buys&lt;br&gt;&lt;br&gt;postal_code&lt;br&gt;prefecture&lt;br&gt;city&lt;br&gt;adddress&lt;br&gt;building&lt;br&gt;room_num" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
@@ -50,7 +50,7 @@
                         <mxPoint x="360" y="120" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="25" value="managements&lt;br&gt;&lt;br&gt;user_id&lt;br&gt;product_id" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                <mxCell id="25" value="managements&lt;br&gt;&lt;br&gt;user&lt;br&gt;product" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
                     <mxGeometry x="200" y="260" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="" style="endArrow=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="4" target="25">

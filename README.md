@@ -2,18 +2,16 @@
 
 ## users
 
-| Column          | Type    | Option      |
-| --------------- | ------- | ----------- |
-| nickname        | string  | null: false |
-| email           | string  | null: false |
-| password        | string  | null: false |
-| last_name       | string  | null: false |
-| first_name      | string  | null: false |
-| last_name_kana  | string  | null: false |
-| first_name_kana | string  | null: false |
-| birth_year      | integer | null: false |
-| birth_month     | integer | null: false |
-| birth_day       | integer | null: false |
+| Column             | Type    | Option                    |
+| ------------------ | ------- | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| last_name          | string  | null: false               |
+| first_name         | string  | null: false               |
+| last_name_kana     | string  | null: false               |
+| first_name_kana    | string  | null: false               |
+| birthday           | date    | null: false               |
 
 ### Association
 - has_many :products
@@ -21,12 +19,17 @@
 
 ## products
 
-| Column          | Type      | Option                         |
-| --------------- | --------- | ------------------------------ |
-| name            | string    | null: false                    |
-| content         | text      | null: false                    |
-| user_id         | reference | null: false, foreign_key: true |
-| delivery_id     | integer   | null: false                    |
+| Column             | Type      | Option                         |
+| ------------------ | --------- | ------------------------------ |
+| name               | string    | null: false                    |
+| content            | text      | null: false                    |
+| price              | integer   | null: false                    |
+| status_id          | integer   | null: false                    |
+| delivery_charge_id | integer   | null: false                    |
+| category_id        | integer   | null: false                    |
+| city_id            | integer   | null: false                    |
+| days_id            | integer   | null: false                    |
+| user_id            | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -34,10 +37,10 @@
 
 ## managements
 
-| Column     | Type      | Option                         |
-| ---------- | --------- | ------------------------------ |
-| user_id    | reference | null: false, foreign_key: true |
-| product_id | reference | null: false, foreign_key: true |
+| Column  | Type      | Option                         |
+| ------- | --------- | ------------------------------ |
+| user    | reference | null: false, foreign_key: true |
+| product | reference | null: false, foreign_key: true |
 
 ### Association
 - has_one :buy
@@ -47,15 +50,16 @@
 
 ## buys
 
-| Column      | Type      | Option                         |
-| ----------- | --------- | ------------------------------ |
-| postal_code | integer   | null: false                    |
-| prefecture  | string    | null: false                    |
-| city        | string    | null: false                    |
-| address     | string    | null: false                    |
-| building    | string    |                                |
-| room_num    | integer   |                                |
-| telephone   | integer   | null: false                    |
+| Column        | Type      | Option                         |
+| ------------- | --------- | ------------------------------ |
+| postal_code   | integer   | null: false                    |
+| prefecture    | string    | null: false                    |
+| city          | string    | null: false                    |
+| address       | string    | null: false                    |
+| building      | string    |                                |
+| room_num      | integer   |                                |
+| telephone     | integer   | null: false                    |
+| management_id | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :management
