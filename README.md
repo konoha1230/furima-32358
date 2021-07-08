@@ -19,17 +19,17 @@
 
 ## products
 
-| Column             | Type      | Option                         |
-| ------------------ | --------- | ------------------------------ |
-| name               | string    | null: false                    |
-| content            | text      | null: false                    |
-| price              | integer   | null: false                    |
-| status_id          | integer   | null: false                    |
-| delivery_charge_id | integer   | null: false                    |
-| category_id        | integer   | null: false                    |
-| city_id            | integer   | null: false                    |
-| days_id            | integer   | null: false                    |
-| user_id            | reference | null: false, foreign_key: true |
+| Column             | Type       | Option                         |
+| ------------------ | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| content            | text       | null: false                    |
+| price              | integer    | null: false                    |
+| status_id          | integer    | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| category_id        | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| days_id            | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -37,10 +37,10 @@
 
 ## managements
 
-| Column  | Type      | Option                         |
-| ------- | --------- | ------------------------------ |
-| user    | reference | null: false, foreign_key: true |
-| product | reference | null: false, foreign_key: true |
+| Column  | Type       | Option                         |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :buy
@@ -50,16 +50,15 @@
 
 ## buys
 
-| Column        | Type      | Option                         |
-| ------------- | --------- | ------------------------------ |
-| postal_code   | integer   | null: false                    |
-| prefecture    | string    | null: false                    |
-| city          | string    | null: false                    |
-| address       | string    | null: false                    |
-| building      | string    |                                |
-| room_num      | integer   |                                |
-| telephone     | integer   | null: false                    |
-| management_id | reference | null: false, foreign_key: true |
+| Column        | Type       | Option                         |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture    | string     | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| telephone     | string     | null: false                    |
+| management    | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :management
