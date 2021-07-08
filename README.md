@@ -28,7 +28,7 @@
 | delivery_charge_id | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| days_id            | integer    | null: false                    |
+| duration_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
@@ -53,7 +53,7 @@
 | Column        | Type       | Option                         |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture    | string     | null: false                    |
+| prefecture    | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | building      | string     |                                |
