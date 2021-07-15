@@ -11,5 +11,5 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :birthday, presence: true
 
-  validates :password, :password_confirmation, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は英数字混同で入力してください" }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,100}\z/i, message: "は英数字混同で入力してください" }
 end
