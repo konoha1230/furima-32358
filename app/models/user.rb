@@ -11,4 +11,6 @@ class User < ApplicationRecord
   end
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}\z/i, message: 'は半角英数字混同で入力してください' }
+
+  has_many :products
 end
