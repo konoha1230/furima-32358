@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   with_options presence: true do
     validates :name, :content, :user
-    validates_inclusion_of :price, in:300..9999999, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/, message: "は半角数字で入力してください" }
+    validates :price, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/, message: "は半角数字で入力してください" }
+    validates_inclusion_of :price, in:300..9999999
   end
 
   with_options numericality: { other_then: 1 , message: "can't be blank" } do
