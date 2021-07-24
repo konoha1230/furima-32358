@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   with_options presence: true do
-    validates :name, :content, :user, :image
+    validates :name, :content, :image
     validates :price, numericality: true
     validates_inclusion_of :price, in: 300..9_999_999
   end
