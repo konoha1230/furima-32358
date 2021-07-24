@@ -76,43 +76,43 @@ RSpec.describe Product, type: :model do
   end
 
   it 'priceが300未満の時。出品できない' do
-    @product.price = '299'
+    @product.price = 299
     @product.valid?
     expect(@product.errors.full_messages).to include('Price is not included in the list')
   end
 
   it 'priceが1000万以上の時、出品できない' do
-    @product.price = '10000000'
+    @product.price = 10000000
     @product.valid?
     expect(@product.errors.full_messages).to include('Price is not included in the list')
   end
 
   it 'status_idが選択されていない時、出品できない' do
-    @product.status_id = '1'
+    @product.status_id = 1
     @product.valid?
     expect(@product.errors.full_messages).to include("Status can't be blank")
   end
 
   it 'delivery_charge_idが選択されていない時、出品できない' do
-    @product.delivery_charge_id = '1'
+    @product.delivery_charge_id = 1
     @product.valid?
     expect(@product.errors.full_messages).to include("Delivery charge can't be blank")
   end
 
   it 'category_idが選択されていない時、出品できない' do
-    @product.category_id = '1'
+    @product.category_id = 1
     @product.valid?
     expect(@product.errors.full_messages).to include("Category can't be blank")
   end
 
   it 'prefecture_idが選択されていない時、出品できない' do
-    @product.prefecture_id = '1'
+    @product.prefecture_id = 1
     @product.valid?
     expect(@product.errors.full_messages).to include("Prefecture can't be blank")
   end
 
   it 'duration_idが選択されていない時、出品できない' do
-    @product.duration_id = '1'
+    @product.duration_id = 1
     @product.valid?
     expect(@product.errors.full_messages).to include("Duration can't be blank")
   end
