@@ -85,7 +85,7 @@ RSpec.describe Product, type: :model do
     end
 
     it 'priceが1000万以上の時、出品できない' do
-      @product.price = 10000000
+      @product.price = 10_000_000
       @product.valid?
       expect(@product.errors.full_messages).to include('Price is not included in the list')
     end
