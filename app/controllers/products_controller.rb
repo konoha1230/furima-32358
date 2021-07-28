@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :get_data, only: [:show, :edit, :update]
+  before_action :user_judge, only: [:edit, :update]
 
   def index
     @products = Product.all.order('created_at DESC')
@@ -18,17 +20,17 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
+  def get_data
     @product = Product.find(params[:id])
+  end
+
+  def show
   end
 
   def edit
-    @product = Product.find(params[:id])
-    redirect_to root_path unless @product.user_id == current_user.id
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to product_path(@product.id)
     else
@@ -41,5 +43,9 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:image, :name, :content, :price, :status_id, :category_id, :delivery_charge_id,
                                     :prefecture_id, :duration_id).merge(user_id: current_user.id)
+  end
+
+  def user_judge
+    redirect_to root_path unless @product.user_id == current_user.id
   end
 end
