@@ -20,10 +20,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def get_data
-    @product = Product.find(params[:id])
-  end
-
   def show
   end
 
@@ -43,6 +39,10 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:image, :name, :content, :price, :status_id, :category_id, :delivery_charge_id,
                                     :prefecture_id, :duration_id).merge(user_id: current_user.id)
+  end
+
+  def get_data
+    @product = Product.find(params[:id])
   end
 
   def user_judge
