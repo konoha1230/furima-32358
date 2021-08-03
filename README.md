@@ -35,7 +35,7 @@
 - belongs_to :user
 - has_one :management
 
-## managements
+## orders
 
 | Column  | Type       | Option                         |
 | ------- | ---------- | ------------------------------ |
