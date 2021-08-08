@@ -58,7 +58,7 @@
 | address       | string     | null: false                    |
 | building      | string     |                                |
 | telephone     | string     | null: false                    |
-| management    | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
