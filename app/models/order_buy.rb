@@ -1,6 +1,6 @@
 class OrderBuy
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :address, :building, :telephone
+  attr_accessor :token, :postal_code, :prefecture_id, :city, :address, :building, :telephone
 
   with_options presence: true do
     validates :city, :address
@@ -11,6 +11,6 @@ class OrderBuy
 
   def save
     order = Order.create
-    Buy.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building, telephone: telephone, order: order.id)
+    Buy.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building, telephone: telephone, order_id: order.id)
   end
 end
