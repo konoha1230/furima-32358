@@ -3,10 +3,10 @@ class OrdersController < ApplicationController
 
   def index
     @product = Product.find(params[:product_id])
-    unless current_user.id == @product.user_id
-      @order_buy = OrderBuy.new
-    else
+    if current_user.id == @product.user_id
       redirect_to root_path
+    else
+      @order_buy = OrderBuy.new
     end
   end
 
@@ -25,11 +25,13 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_buy).permit(:postal_code, :prefecture_id, :city, :address, :building, :telephone).merge(token: params[:token], user_id: current_user.id, product_id: params[:product_id])
+    params.require(:order_buy).permit(:postal_code, :prefecture_id, :city, :address, :building, :telephone).merge(
+      token: params[:token], user_id: current_user.id, product_id: params[:product_id]
+    )
   end
 
   def pay_product
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @product.price,
       card: order_params[:token],
