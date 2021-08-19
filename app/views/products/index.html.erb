@@ -135,6 +135,13 @@
         <div class='item-img-content'>
           <%= image_tag product.image, class: "item-img" %>
 
+      
+          <% @orders.each do |order| %>
+            <% if order.product_id == product.id %>
+              <% @count = 1 %>
+            <% end %>
+          <% end %>
+
           <% if @count == 1 %>
             <div class='sold-out'>
               <span>Sold Out!!</span>

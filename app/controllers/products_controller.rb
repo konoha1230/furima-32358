@@ -6,9 +6,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all.order('created_at DESC')
-    @products.each do |product|
-      order_counter(@orders, product)
-    end
+    @count = 0
   end
 
   def new
