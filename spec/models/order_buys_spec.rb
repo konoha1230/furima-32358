@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe OrderBuy, type: :model do
   before do
-    @order_buy = FactoryBot.build(:order_buy)
+    @user = FactoryBot.create(:user)
+    @product = FactoryBot.create(:product)
+    @order_buy = FactoryBot.build(:order_buy, user_id: @user.id, product_id: @product.id)
   end
 
   context '正常に購入できる' do
