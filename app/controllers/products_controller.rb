@@ -2,9 +2,12 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_data, only: [:show, :edit, :update, :destroy]
   before_action :user_judge, only: [:edit, :update, :destroy]
+  before_action :get_data_order, only: [:index, :show, :edit, :destroy]
+  before_action -> { order_counter(@orders, @product) }, only: [:show, :edit, :destroy]
 
   def index
     @products = Product.all.order('created_at DESC')
+    @count = 0
   end
 
   def new
@@ -24,6 +27,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if @count == 1
+      redirect_to root_path
+    end
   end
 
   def update
@@ -35,7 +41,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    if @count == 0
+      @product.destroy
+    end
     redirect_to root_path
   end
 
@@ -48,6 +56,20 @@ class ProductsController < ApplicationController
 
   def get_data
     @product = Product.find(params[:id])
+  end
+
+  def get_data_order
+    @orders = Order.includes(:product)
+  end
+
+  def order_counter(orders, product)
+    @count = 0
+    orders.each do |order|
+      if order.product_id == product.id
+        @count = 1
+        return
+      end
+    end
   end
 
   def user_judge
