@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :product_search, only: [:index, :create]
 
   def index
-    @product = Product.find(params[:product_id])
     orders = Order.includes(:product)
     count = 0
     orders.each do |order|
@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:product_id])
     @order_buy = OrderBuy.new(order_params)
     if @order_buy.valid?
       pay_product
@@ -35,6 +34,10 @@ class OrdersController < ApplicationController
     params.require(:order_buy).permit(:postal_code, :prefecture_id, :city, :address, :building, :telephone).merge(
       token: params[:token], user_id: current_user.id, product_id: params[:product_id]
     )
+  end
+
+  def product_search
+    @product = Product.find(params[:product_id])
   end
 
   def pay_product

@@ -94,5 +94,17 @@ RSpec.describe OrderBuy, type: :model do
       @order_buy.valid?
       expect(@order_buy.errors.full_messages).to include('Telephone はハイフンなしで10、11桁の半角数字で入力してください')
     end
+
+    it 'user_idが空では、購入できない' do
+      @order_buy.user_id = nil
+      @order_buy.valid?
+      expect(@order_buy.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'product_idが空では、購入できない' do
+      @order_buy.product_id = nil
+      @order_buy.valid?
+      expect(@order_buy.errors.full_messages).to include("Product can't be blank")
+    end
   end
 end

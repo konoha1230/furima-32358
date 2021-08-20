@@ -7,5 +7,7 @@ FactoryBot.define do
     address { '青山1-1-1' }
     building { '柳ビル103' }
     telephone { '09012345678' }
+    user_id {1}
+    product_id {1}
   end
 end
