@@ -3,7 +3,14 @@ class OrdersController < ApplicationController
 
   def index
     @product = Product.find(params[:product_id])
-    if current_user.id == @product.user_id
+    orders = Order.includes(:product)
+    count = 0
+    orders.each do |order|
+      if order.product_id == @product.id
+        count = 1
+      end
+    end
+    if count == 1 || current_user.id == @product.user_id
       redirect_to root_path
     else
       @order_buy = OrderBuy.new
