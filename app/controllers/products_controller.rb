@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :get_data, only: [:show, :edit, :update, :destroy]
   before_action :user_judge, only: [:edit, :update, :destroy]
   before_action :get_data_order, only: [:index, :show, :edit, :destroy]
+  before_action -> { order_counter(@orders, @product) }, only: [:show, :edit, :destroy]
 
   def index
     @products = Product.all.order('created_at DESC')
@@ -23,11 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    order_counter(@orders, @product)
   end
 
   def edit
-    order_counter(@orders, @product)
     if @count == 1
       redirect_to root_path
     end
@@ -42,7 +41,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    order_counter(@orders, @product)
     if @count == 0
       @product.destroy
     end
