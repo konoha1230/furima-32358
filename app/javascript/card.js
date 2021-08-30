@@ -16,7 +16,7 @@ const pay = () => {
       cvc: formData.get("order_buy[cvc]")
     }
     Payjp.createToken(card, (status, response) => {
-      if (status == 200) {
+      if (status === 200) {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden">`;
