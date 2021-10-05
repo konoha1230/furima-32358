@@ -15,7 +15,8 @@
 
 ### Association
 - has_many :products
-- has_many :managements
+- has_many :buys
+- has_many :comments
 
 ## products
 
@@ -33,7 +34,8 @@
 
 ### Association
 - belongs_to :user
-- has_one :management
+- has_one :buy
+- has_many :comments
 
 ## orders
 
@@ -62,3 +64,14 @@
 
 ### Association
 - belongs_to :order
+
+## comments
+
+| Column  | Type       | Option                         |
+| comment | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :product
