@@ -117,7 +117,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="36" value="comments&lt;br&gt;&lt;br&gt;user&lt;br&gt;product&lt;br&gt;comment" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="36" value="comments&lt;br&gt;&lt;br&gt;user&lt;br&gt;product&lt;br&gt;content" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="210" y="-240" width="120" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" value="" style="endArrow=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1.008;exitY=0.4;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="36" target="3">

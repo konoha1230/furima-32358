@@ -68,7 +68,7 @@
 ## comments
 
 | Column  | Type       | Option                         |
-| comment | string     | null: false                    |
+| content | string     | null: false                    |
 | user    | references | null: false, foreign_key: true |
 | product | references | null: false, foreign_key: true |
 
