@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @comments = Comment.includes(:comment)
   end
 
   def edit

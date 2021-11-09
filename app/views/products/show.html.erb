@@ -79,8 +79,8 @@
   <%# /商品の概要 %>
 
   <div class="comment-box">
-    <%= form_with model: [@comment, @product], url: product_comments_path(@product.id), local: true do |f| %>
-      <%= f.text_area :text, class: "comment-text" %>
+    <%= form_with model: @comment, url: product_comments_path(@product.id), method: :post, local: true do |f| %>
+      <%= f.text_area :text, class: "comment-text", placeholder: "入力しよう" %>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
@@ -88,6 +88,11 @@
       </p>
       <%= f.submit "コメントする", class: "comment-btn" %>
     <% end %>
+    <div class="comment-list">
+      <%# @comments.each do |comment| %>
+        <%# comment.text %>
+      <%# end %>
+    </div>
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">
